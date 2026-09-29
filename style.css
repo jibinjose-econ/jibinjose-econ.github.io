@@ -1,0 +1,279 @@
+/* ------------------------------------------------------------------
+   Jibin Jose — academic site
+   Shared by index.html and teaching.html
+   ------------------------------------------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg:      #ffffff;
+  --ink:     #1b1b1b;
+  --muted:   #6e6e6e;
+  --link:    #1f4e79;
+  --rule:    #dcdcdc;
+  --sidebar: 290px;
+  --gap:     60px;
+  --measure: 660px;
+
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* Serif alternative — swap into --sans to try it:
+     Georgia, "Iowan Old Style", "Times New Roman", serif;  */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.skip {
+  position: absolute; left: -9999px;
+  background: var(--ink); color: #fff; padding: 8px 12px;
+}
+.skip:focus { left: 8px; top: 8px; z-index: 10; }
+
+/* ---------- page frame ---------- */
+
+.page {
+  max-width: calc(var(--sidebar) + var(--gap) + var(--measure));
+  margin: 0 auto;
+  padding: 52px 24px 72px;
+  display: grid;
+  grid-template-columns: var(--sidebar) 1fr;
+  column-gap: var(--gap);
+  align-items: start;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  grid-column: 1 / -1;
+  margin-bottom: 36px;
+}
+
+.name {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.name a { color: inherit; }
+.name a:hover { text-decoration: none; }
+
+.role {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- sidebar ---------- */
+
+.sidebar { position: sticky; top: 32px; }
+
+.portrait {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 0 22px;
+}
+
+.contact {
+  font-size: 0.87rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 18px;
+  font-style: normal;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  font-size: 0.9rem;
+}
+.links li { margin-bottom: 3px; }
+
+.sidebar hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 0 0 18px;
+}
+
+.sectionnav { font-size: 0.9rem; }
+.sectionnav ul { list-style: none; padding: 0; margin: 0; }
+.sectionnav li { margin-bottom: 5px; }
+.sectionnav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 700;
+}
+.sectionnav .anchors {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #eee;
+  font-size: 0.86rem;
+}
+
+/* ---------- main column ---------- */
+
+.main { max-width: var(--measure); min-width: 0; }
+
+.bio { margin-top: -6px; }
+.bio p { margin: 0 0 1em; }
+
+h2 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 44px 0 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 24px;
+}
+.main > h2:first-child { margin-top: 0; }
+
+h3 {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #3d3d3d;
+  margin: 30px 0 0;
+}
+
+/* ---------- publication entries ---------- */
+
+.pub { margin: 22px 0; }
+
+.pub .title { line-height: 1.45; }
+
+.pub .meta {
+  font-size: 0.89rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-top: 3px;
+}
+
+.pub details { margin-top: 7px; }
+
+.pub summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--muted);
+  list-style: none;
+  display: inline-block;
+}
+.pub summary::-webkit-details-marker { display: none; }
+.pub summary::before { content: "\25B8\00a0"; }
+.pub details[open] summary::before { content: "\25BE\00a0"; }
+.pub summary:hover { color: var(--ink); }
+
+.pub .abstract {
+  font-size: 0.89rem;
+  line-height: 1.65;
+  text-align: justify;
+  margin: 8px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--rule);
+}
+
+/* ---------- teaching ---------- */
+
+.tablewrap { overflow-x: auto; margin: 16px 0 6px; }
+
+.grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+  line-height: 1.5;
+  min-width: 560px;
+}
+.grid th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.83rem;
+  padding: 0 12px 7px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.grid td {
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+.grid td:last-child, .grid th:last-child { padding-right: 0; }
+.grid td.nowrap { white-space: nowrap; color: var(--muted); }
+
+.eval { margin: 24px 0; }
+
+.evalhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eee;
+}
+.evalhead .course { font-size: 0.94rem; font-weight: 600; flex: 1 1 260px; }
+.evalhead .rolebit { font-weight: 400; color: var(--muted); }
+.evalhead .term { font-size: 0.86rem; color: var(--muted); white-space: nowrap; }
+.evalhead .rating { font-size: 0.86rem; white-space: nowrap; }
+
+.eval blockquote {
+  margin: 10px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--rule);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #3d3d3d;
+}
+.eval blockquote::before { content: "\201C"; }
+.eval blockquote::after  { content: "\201D"; }
+
+.notes {
+  font-size: 0.83rem;
+  color: var(--muted);
+  margin: 10px 0 0;
+  line-height: 1.55;
+}
+
+/* ---------- footer ---------- */
+
+.foot {
+  border-top: 1px solid var(--rule);
+  padding: 18px 24px 48px;
+}
+.footinner {
+  max-width: calc(var(--sidebar) + var(--gap) + var(--measure));
+  margin: 0 auto;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 860px) {
+  .page {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    padding: 36px 20px 56px;
+  }
+  .masthead { margin-bottom: 4px; }
+  .sidebar { position: static; }
+  .portrait { max-width: 220px; }
+  .bio { margin-top: 0; }
+  .pub .abstract { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
