@@ -106,7 +106,7 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 .sidebar { position: sticky; top: 32px; }
 
 .portrait {
-  width: 100%;
+  width: 240px;
   height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
