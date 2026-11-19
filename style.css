@@ -186,10 +186,19 @@ h3 {
   margin-top: 3px;
 }
 
-.pub .summary {
-  font-size: 0.92rem;
-  line-height: 1.6;
+.pub details + details { margin-top: 2px; }
+
+.pub .nontech {
   margin: 8px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid var(--rule);
+}
+
+.pub .summary {
+  font-size: 0.89rem;
+  line-height: 1.65;
+  text-align: justify;
+  margin: 0;
 }
 
 .pub .pubfig { margin: 18px 0 4px; }
@@ -316,7 +325,7 @@ h3 {
   .sidebar { position: static; }
   .portrait { max-width: 220px; }
   .bio { margin-top: 0; }
-  .pub .abstract { text-align: left; }
+  .pub .abstract, .pub .summary { text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {
