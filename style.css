@@ -186,23 +186,7 @@ h3 {
   margin-top: 3px;
 }
 
-/* Two toggles side by side (job market paper); panels open below both */
-.pub .toggles { margin-top: 7px; }
-.pub .tg { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.pub .toggles label {
-  cursor: pointer;
-  font-size: 0.85rem;
-  color: var(--muted);
-  display: inline-block;
-  margin-right: 22px;
-}
-.pub .toggles label::before { content: "\25B8\00a0"; }
-.pub .tg:checked + label::before { content: "\25BE\00a0"; }
-.pub .toggles label:hover { color: var(--ink); }
-.pub .tg:focus-visible + label { outline: 2px solid var(--link); outline-offset: 2px; }
-.pub .panel { display: none; }
-.pub #jmp-abstract:checked ~ .panel-1,
-.pub #jmp-summary:checked ~ .panel-2 { display: block; }
+.pub details + details { margin-top: 2px; }
 
 .pub .nontech {
   margin: 8px 0 0;
